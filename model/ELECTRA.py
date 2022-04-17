@@ -11,8 +11,8 @@ class ELECTRA(nn.Module):
         self.dropout = nn.Dropout(cfg['dropout'])
         self.fc = nn.Linear(cfg['hidden_dim'], 2)
 
-    def forward(self, input_x, token_type_ids, attention_mask):
-        x = self.electra(input_x, token_type_ids, attention_mask)
+    def forward(self, input_ids, token_type_ids, attention_mask):
+        x = self.electra(input_ids, token_type_ids, attention_mask)
         x = self.dropout(x)
         x = self.fc(x)
         return x
