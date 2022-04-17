@@ -12,7 +12,7 @@ class ELECTRA(nn.Module):
         self.fc = nn.Linear(cfg['hidden_dim'], 2)
 
     def forward(self, input_ids, token_type_ids, attention_mask):
-        x = self.electra(input_ids, token_type_ids, attention_mask)
+        x = self.electra(input_ids=input_ids, token_type_ids=token_type_ids, attention_mask=attention_mask)
         x = x[0]
         # x = x[:, 0, :]
         x = torch.mean(x, dim=1)
