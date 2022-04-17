@@ -12,5 +12,5 @@ cfg = {
     'dropout': 0.2,
     'batch_size': 16,
     'epoch': 10,
-    'learning_rate': 1e-4,
+    'learning_rate': 1e-5,
 }
