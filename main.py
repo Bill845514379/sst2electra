@@ -98,7 +98,7 @@ for ss in seeds:
             print('-------------------------   dev   ------------------------------')
             sum_acc, num = 0, 0
             # torch.save(net.state_dict(), 'save_model/params' + str(i + 1) + '.pkl')
-            for batch_x, batch_y in loader_dev:
+            for batch_x, token_type_ids, attention_mask, batch_y in loader_dev:
                 net.eval()
                 batch_x, token_type_ids, attention_mask, batch_y = Variable(batch_x).long(), Variable(
                     token_type_ids).long(), Variable(attention_mask).long(), Variable(batch_y).long()
@@ -129,7 +129,7 @@ for ss in seeds:
             label_out, label_y = [], []
             print('-------------------------   dev   ------------------------------')
             sum_acc, num = 0, 0
-            for batch_x, batch_y in loader_test:
+            for batch_x, token_type_ids, attention_mask, batch_y in loader_test:
                 net.eval()
                 batch_x, token_type_ids, attention_mask, batch_y = Variable(batch_x).long(), Variable(
                     token_type_ids).long(), Variable(attention_mask).long(), Variable(batch_y).long()
