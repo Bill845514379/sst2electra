@@ -1,13 +1,13 @@
 import torch
 import torch.nn as nn
 from config.cfg import path, cfg
-from transformers import ElectraModel, ElectraForSequenceClassification
+from transformers import ElectraModel, ElectraForSequenceClassification, BertModel
 
 class ELECTRA(nn.Module):
 
     def __init__(self):
         super(ELECTRA, self).__init__()
-        self.electra = ElectraModel.from_pretrained(path['electra_path'])
+        self.electra = BertModel.from_pretrained(path['electra_path'])
         self.dropout = nn.Dropout(cfg['dropout'])
         self.fc = nn.Linear(cfg['hidden_dim'], 2)
 
