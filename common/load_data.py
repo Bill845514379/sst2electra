@@ -21,14 +21,15 @@ def load_data(path):
     data_train = sst2['train']
     data_val = sst2['validation']
     data_test = sst2['test']
-
-    x_train = tokenizer(tran_list(data_train['sentence']), padding=True, return_tensors="pt")
+    print(data_train['sentence'][0])
+    print(data_train['tokens'][0])
+    x_train = tokenizer(tran_list(data_train['sentence']), padding=True, return_tensors="pt", do_lower_case=True)
     y_train = torch.tensor(data_train['label'])
 
-    x_val = tokenizer(tran_list(data_val['sentence']),padding=True, return_tensors="pt")
+    x_val = tokenizer(tran_list(data_val['sentence']),padding=True, return_tensors="pt", do_lower_case=True)
     y_val = torch.tensor(data_val['label'])
 
-    x_test = tokenizer(tran_list(data_test['sentence']) ,padding=True, return_tensors="pt")
+    x_test = tokenizer(tran_list(data_test['sentence']) ,padding=True, return_tensors="pt", do_lower_case=True)
     y_test = torch.tensor(data_test['label'])
 
     return x_train, y_train, x_val, y_val, x_test, y_test
