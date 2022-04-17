@@ -3,7 +3,7 @@
 
 path = {
     'data_path': 'data/sst2/',
-    'electra_path': 'pretrained_model/electra-base-discriminator'
+    'electra_path': 'electra-base-discriminator'
 }
 
 cfg = {
