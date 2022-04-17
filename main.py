@@ -55,7 +55,6 @@ for ss in seeds:
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.3, patience=2, verbose=True, threshold=0.0001, threshold_mode='rel', cooldown=0, min_lr=0, eps=1e-08)
 
     print(cfg)
-    print(hyper)
 
     for i in range(epoch):
         print('-------------------------   training   ------------------------------')
