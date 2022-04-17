@@ -3,7 +3,7 @@
 
 path = {
     'data_path': 'data/sst2/',
-    'electra_path': 'bhadresh-savani/electra-base-discriminator'
+    'electra_path': 'bhadresh-savani/electra-base-emotion'
 }
 
 cfg = {
