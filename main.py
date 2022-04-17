@@ -48,6 +48,7 @@ for ss in seeds:
     )
 
     configuration = ElectraConfig.from_pretrained(path['electra_path'])
+    print(configuration)
     configuration['num_labels'] = 2
     net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], config=configuration)
     net.to(device)
