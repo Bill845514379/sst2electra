@@ -4,7 +4,7 @@ import numpy as np
 from common.load_data import load_data
 from common.set_random_seed import setup_seed
 from torch.autograd import Variable
-from config.cfg import path, cfg, hyper
+from config.cfg import path, cfg
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
