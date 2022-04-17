@@ -7,7 +7,7 @@ path = {
 }
 
 cfg = {
-    'batch_size': 1,
+    'batch_size': 16,
     'epoch': 10,
     'learning_rate': 1e-4,
 }
