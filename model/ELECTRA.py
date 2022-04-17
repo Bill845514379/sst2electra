@@ -13,6 +13,8 @@ class ELECTRA(nn.Module):
 
     def forward(self, input_ids, token_type_ids, attention_mask):
         x = self.electra(input_ids, token_type_ids, attention_mask)
+        print(len(x))
+        print(x)
         x = x[1]
 
         x = self.dropout(x)
