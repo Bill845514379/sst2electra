@@ -71,8 +71,6 @@ for ss in seeds:
 
             output = net(input_ids = batch_x, token_type_ids = token_type_ids, attention_mask=attention_mask)
             criterion = nn.CrossEntropyLoss()
-            print(output.shape)
-            print(batch_y.shape)
             loss = criterion(output, batch_y)
             loss.backward()
             optimizer.step()  # 更新权重
