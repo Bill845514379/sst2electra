@@ -1,5 +1,5 @@
 
-from transformers import ElectraForSequenceClassification
+from transformers import ElectraForSequenceClassification, ElectraConfig
 import numpy as np
 from common.load_data import load_data
 from common.set_random_seed import setup_seed
@@ -47,8 +47,9 @@ for ss in seeds:
         drop_last=False
     )
 
-    
-    net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], num_labels=2)
+    configuration = ElectraConfig.from_pretrained(path['electra_path'])
+    configuration['num_labels'] = 2
+    net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], config=configuration)
     net.to(device)
 
     epoch = cfg['epoch']
