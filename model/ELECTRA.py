@@ -15,7 +15,6 @@ class ELECTRA(nn.Module):
         x = self.electra(input_ids, token_type_ids, attention_mask)
         x = x[0]
         x = x[:, 0, :]
-        print(x.shape)
         x = self.dropout(x)
         x = self.fc(x)
         return x
