@@ -69,11 +69,12 @@ for ss in seeds:
             batch_x, token_type_ids, attention_mask, batch_y = batch_x.to(device), token_type_ids.to(
                 device), attention_mask.to(device), batch_y.to(device)
 
-            output = net(input_ids = batch_x, token_type_ids = token_type_ids, attention_mask=attention_mask)
+            output = net(input_ids=batch_x, token_type_ids = token_type_ids, attention_mask=attention_mask)
             criterion = nn.CrossEntropyLoss()
             loss = criterion(output, batch_y)
             loss.backward()
             optimizer.step()  # 更新权重
+            optimizer.zero_grad()  # 清空梯度缓存
             ave_loss += loss
             batch += 1
 
