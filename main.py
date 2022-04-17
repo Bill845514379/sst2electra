@@ -47,7 +47,8 @@ for ss in seeds:
         drop_last=False
     )
 
-    net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], num_labels=2)
+    num_labels = len(model.config.id2label)
+    net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], num_labels=2, ignore_mismatched_sizes=True)
     net.to(device)
 
     epoch = cfg['epoch']
