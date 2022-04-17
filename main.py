@@ -1,5 +1,4 @@
-
-from transformers import ElectraForSequenceClassification, ElectraConfig
+from model.ELECTRA import ELECTRA
 import numpy as np
 from common.load_data import load_data
 from common.set_random_seed import setup_seed
@@ -48,11 +47,7 @@ for ss in seeds:
         drop_last=False
     )
 
-    configuration = copy.deepcopy(ElectraConfig.from_pretrained(path['electra_path']))
-    print(configuration)
-    configuration['id2label'] = [0, 1]
-    configuration['label2id'] = [0, 1]
-    net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], config=configuration)
+    net = ELECTRA()
     net.to(device)
 
     epoch = cfg['epoch']
@@ -74,7 +69,7 @@ for ss in seeds:
             batch_x, token_type_ids, attention_mask, batch_y = batch_x.to(device), token_type_ids.to(
                 device), attention_mask.to(device), batch_y.to(device)
 
-            output = net(input_ids = batch_x, token_type_ids = token_type_ids, attention_mask=attention_mask).logits
+            output = net(input_ids = batch_x, token_type_ids = token_type_ids, attention_mask=attention_mask)
             criterion = nn.CrossEntropyLoss()
             # print(output.shape)
             loss = criterion(output, batch_y)
@@ -110,7 +105,7 @@ for ss in seeds:
                     device), attention_mask.to(device), batch_y.to(device)
 
                 with torch.no_grad():
-                     output = net(input_ids=batch_x, token_type_ids=token_type_ids, attention_mask=attention_mask).logits
+                     output = net(input_ids=batch_x, token_type_ids=token_type_ids, attention_mask=attention_mask)
 
                 _, pred = torch.max(output, dim=1)
 
@@ -141,7 +136,7 @@ for ss in seeds:
                     device), attention_mask.to(device), batch_y.to(device)
 
                 with torch.no_grad():
-                     output = net(input_ids=batch_x, token_type_ids=token_type_ids, attention_mask=attention_mask).logits
+                     output = net(input_ids=batch_x, token_type_ids=token_type_ids, attention_mask=attention_mask)
 
                 _, pred = torch.max(output, dim=1)
 
