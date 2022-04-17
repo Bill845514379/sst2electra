@@ -9,6 +9,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 import torch
+import copy
 import time
 
 seeds = [44, 105,1024, 422, 752]
@@ -47,9 +48,10 @@ for ss in seeds:
         drop_last=False
     )
 
-    configuration = ElectraConfig.from_pretrained(path['electra_path'])
+    configuration = copy.deepcopy(ElectraConfig.from_pretrained(path['electra_path']))
     print(configuration)
-    configuration['num_labels'] = 2
+    configuration['id2label'] = [0, 1]
+    configuration['label2id'] = [0, 1]
     net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], config=configuration)
     net.to(device)
 
