@@ -67,7 +67,7 @@ for i in range(epoch):
             token_type_ids).long(), Variable(attention_mask).long(), Variable(batch_y).long()
         batch_x, token_type_ids, attention_mask, batch_y = batch_x.to(device), token_type_ids.to(
             device), attention_mask.to(device), batch_y.to(device)
-        print(batch_y)
+        # print(batch_y)
         output = net(input_ids=batch_x, token_type_ids = token_type_ids, attention_mask=attention_mask)
         criterion = nn.CrossEntropyLoss()
         loss = criterion(output, batch_y)
