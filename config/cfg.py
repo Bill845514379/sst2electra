@@ -10,7 +10,7 @@ path = {
 }
 
 cfg = {
-    'hidden_dim': 256,
+    'hidden_dim': 768,
     'dropout': 0.2,
     'batch_size': 16,
     'epoch': 10,
