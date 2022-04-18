@@ -49,8 +49,7 @@ loader_test = DataLoader(
 if cfg['electra_flag'] == False:
     net = BertForSequenceClassification.from_pretrained(path['bert_path'], num_labels=2)
 else:
-    net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], num_labels=2,
-                                                           ignore_mismatched_sizes=True)
+    net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], num_labels=2)
 net.to(device)
 
 epoch = cfg['epoch']
