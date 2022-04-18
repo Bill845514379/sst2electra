@@ -15,5 +15,5 @@ cfg = {
     'batch_size': 16,
     'epoch': 20,
     'learning_rate': 1e-4,
-    'electra_flag': True,  # False 代表使用Bert base uncased
+    'electra_flag': False,  # False 代表使用Bert base uncased
 }
