@@ -13,6 +13,6 @@ cfg = {
     'hidden_dim': 256,
     'dropout': 0.2,
     'batch_size': 16,
-    'epoch': 30,
+    'epoch': 10,
     'learning_rate': 1e-4,
 }
