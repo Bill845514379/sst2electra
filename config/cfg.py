@@ -16,5 +16,5 @@ cfg = {
     'batch_size': 16,
     'epoch': 10,
     'learning_rate': 1e-4,
-    'electra_flag': True,  # False 代表使用Bert base cased模型
+    'electra_flag': False,  # False 代表使用Bert base cased模型
 }
