@@ -7,7 +7,7 @@ class ELECTRA(nn.Module):
 
     def __init__(self):
         super(ELECTRA, self).__init__()
-        self.electra = BertModel.from_pretrained(path['electra_path'])
+        self.electra = ElectraModel.from_pretrained(path['electra_path'])
         self.dropout = nn.Dropout(cfg['dropout'])
         self.fc = nn.Linear(cfg['hidden_dim'], 2)
 
