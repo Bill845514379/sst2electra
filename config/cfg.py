@@ -5,7 +5,7 @@ path = {
     'data_path': 'data/sst2/',
     # 'electra_path': 'bhadresh-savani/electra-base-emotion',
     # 'electra_path': 'pretrained_model/electra-base-discriminator',
-    'electra_path': 'google/electra-small-discriminator'
+    'electra_path': 'google/electra-base-discriminator'
     # 'electra_path': 'bert-base-cased',
 }
 
