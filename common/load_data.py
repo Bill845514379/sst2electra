@@ -5,7 +5,10 @@ from transformers import ElectraTokenizer, ElectraModel, BertTokenizer
 import numpy as np
 import torch
 
-tokenizer = ElectraTokenizer.from_pretrained(path['electra_path'], do_lower_case=True)
+if cfg['electra_flag']:
+    tokenizer = ElectraTokenizer.from_pretrained(path['electra_path'], do_lower_case=True)
+else:
+    tokenizer = BertTokenizer.from_pretrained(path['bert_path'], do_lower_case=True)
 
 def tran_list(data):
   t = []
