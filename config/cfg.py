@@ -6,8 +6,7 @@ path = {
     # 'electra_path': 'bhadresh-savani/electra-base-emotion',
     # 'electra_path': 'pretrained_model/electra-base-discriminator',
     'electra_path': 'google/electra-base-discriminator',
-    'bert_path': 'bert-base-cased'
-    # 'electra_path': 'bert-base-cased',
+    'bert_path': 'bert-base-uncased'
 }
 
 cfg = {
@@ -16,5 +15,5 @@ cfg = {
     'batch_size': 16,
     'epoch': 20,
     'learning_rate': 1e-4,
-    'electra_flag': False,  # False 代表使用Bert base cased模型
+    'electra_flag': False,  # False 代表使用Bert base uncased
 }
