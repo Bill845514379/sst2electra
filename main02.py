@@ -47,7 +47,7 @@ loader_test = DataLoader(
 )
 
 if cfg['electra_flag'] == False:
-    net = BertForSequenceClassification(path['bert_path'], num_labels=2)
+    net = BertForSequenceClassification.from_pretrained(path['bert_path'], num_labels=2)
 else:
     net = ElectraForSequenceClassification.from_pretrained(path['electra_path'], num_labels=2,
                                                            ignore_mismatched_sizes=True)
