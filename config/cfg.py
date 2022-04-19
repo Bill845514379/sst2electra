@@ -14,6 +14,6 @@ cfg = {
     'dropout': 0.2,
     'batch_size': 16,
     'epoch': 20,
-    'learning_rate': 1e-4,
+    'learning_rate': 1e-5,
     'electra_flag': True,  # False 代表使用Bert base uncased
 }
